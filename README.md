@@ -15,6 +15,6 @@
 |4 | Retrieving Data from APIs & Building APIs  |[04_starter](https://github.com/RikkuX491/SE-NYC-TEMPLATE-Phase-4/tree/04_starter)|||
 |5 | REST APIs with Flask                       |[05_starter](https://github.com/RikkuX491/SE-NYC-TEMPLATE-Phase-4/tree/05_starter)|||
 |6 | Constraints and Validations                |[06_starter](https://github.com/RikkuX491/SE-NYC-TEMPLATE-Phase-4/tree/06_starter)|||
-|7 | Client & Server Communication              ||||
+|7 | Client & Server Communication              |[07_starter](https://github.com/RikkuX491/SE-NYC-TEMPLATE-Phase-4/tree/07_starter)|||
 |8 | Authentication                             ||||
 |9 | Authorization                              ||||
