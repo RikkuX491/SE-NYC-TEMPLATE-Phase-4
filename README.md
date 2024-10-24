@@ -17,4 +17,4 @@
 |6 | Constraints and Validations                |[06_starter](https://github.com/RikkuX491/SE-NYC-TEMPLATE-Phase-4/tree/06_starter)|||
 |7 | Client & Server Communication              |[07_starter](https://github.com/RikkuX491/SE-NYC-TEMPLATE-Phase-4/tree/07_starter)|||
 |8 | Authentication                             |[08_starter](https://github.com/RikkuX491/SE-NYC-TEMPLATE-Phase-4/tree/08_starter)|||
-|9 | Authorization                              ||||
+|9 | Authorization                              |[09_starter](https://github.com/RikkuX491/SE-NYC-TEMPLATE-Phase-4/tree/09_starter)|||
