@@ -22,19 +22,19 @@
 
 3. Enter the command `cd server` in your terminal to move into the server directory.
 
-## Code Along
+## Notes
 
-We will be writing our code in the `app.py` file in the `server` directory (folder):
-
-1. Write the following code after line 1 in `app.py`:
+The following code in `app.py` will import the `Flask` class so that we can use it to create an instance of the `Flask` class to start our Flask application:
 
 ```py
 from flask import Flask
 ```
 
-This will import the `Flask` class so that we can use it to create an instance of the `Flask` class to start our Flask application.
+## Code Along
 
-2. Write the following code on the next line in `app.py`:
+We will be writing our code in the `app.py` file in the `server` directory (folder):
+
+1. Write the following code on the next line after the `from data import burgers` line of code in `app.py`:
 
 ```py
 app = Flask(__name__)
@@ -42,7 +42,7 @@ app = Flask(__name__)
 
 This will create an instance of the `Flask` class so that we can use it to start our Flask application.
 
-3. Write the following code on the next line in `app.py` which will create our first route and view:
+2. Write the following code on the next line in `app.py` which will create our first route and view:
 
 ```py
 @app.route('/')
@@ -52,7 +52,7 @@ def index():
 
 The `index()` view will return a string containing code for a HTML header element that says "Welcome to my website!"
 
-4. To run the application that we created in this lesson, we need to run three terminal commands inside of our `pipenv` virtual environment. We should ideally run these commands from the `server` directory where the `app.py` file is located. Enter the following commands in your terminal while inside of the `server` directory:
+3. To run the application that we created in this lesson, we need to run three terminal commands inside of our `pipenv` virtual environment. We should ideally run these commands from the `server` directory where the `app.py` file is located. Enter the following commands in your terminal while inside of the `server` directory:
 
 ```
 export FLASK_APP=app.py
@@ -68,22 +68,22 @@ flask run
 
 `flask run` is a command run from the terminal that looks for the name of the Python module with our Flask application instance and runs the Flask app.
 
-5. Navigate to `http://127.0.0.1:7777` and you should see a page that says "Welcome to my website!" We were able to create a basic webpage using a Flask route and view! By the way, on many computers, `localhost` is an alias for the IP address `127.0.0.1`, so `http://localhost:7777` works as well.
+4. Navigate to `http://127.0.0.1:7777` and you should see a page that says "Welcome to my website!" We were able to create a basic webpage using a Flask route and view! By the way, on many computers, `localhost` is an alias for the IP address `127.0.0.1`, so `http://localhost:7777` works as well.
 
-6. We can also run a development server through treating our application module as a script with the `app.run()` method. Write the following code in `app.py` after the code for the `index()` view function:
+5. We can also run a development server through treating our application module as a script with the `app.run()` method. Write the following code in `app.py` after the code for the `index()` view function:
 
 ```py
 if __name__ == "__main__":
     app.run(port=7777, debug=True)
 ```
 
-7. Enter the following command in the terminal to run the script and you should see that we're running the same server as before, but with `Debug mode` set to `on`:
+6. Enter the following command in the terminal to run the script and you should see that we're running the same server as before, but with `Debug mode` set to `on`:
 
 ```
 python app.py
 ```
 
-8. If you want to set `Debug mode` to `on` when running the `flask run` command in the terminal, you can run the following command in the terminal, while inside of the `server` directory:
+7. If you want to set `Debug mode` to `on` when running the `flask run` command in the terminal, you can run the following command in the terminal, while inside of the `server` directory:
 
 ```
 flask run --debug
@@ -91,7 +91,7 @@ flask run --debug
 
 This will allow the Flask app to detect changes to your code in `app.py` that would affect the Flask app (changes to the app's routes, views, etc) after saving those changes.
 
-9. Write the following code in `app.py` after the code for the `index()` view function (but before the `if __name__ == "__main__"` code) which will create another route and view:
+8. Write the following code in `app.py` after the code for the `index()` view function (but before the `if __name__ == "__main__"` code) which will create another route and view:
 
 ```py
 @app.route('/another_page')
@@ -101,7 +101,7 @@ def different_page():
 
 The `different_page()` view will return a string containing code for a HTML header element that says "This is another page!" You will be able to view this content when you visit `http://127.0.0.1:7777/another_page` (or `http://localhost:7777/another_page`)
 
-10. Write the following code in `app.py` after the code for the `different_page()` view function (but before the `if __name__ == "__main__"` code) which will create a route and view where the route takes in a parameter `<name>`:
+9. Write the following code in `app.py` after the code for the `different_page()` view function (but before the `if __name__ == "__main__"` code) which will create a route and view where the route takes in a parameter `<name>`:
 
 ```py
 @app.route('/intro/<name>')
@@ -115,7 +115,7 @@ There must be a parameter with the name of `name` for the `intro()` view functio
 
 By default, all parameters passed in will have the `str` data type. A view can receive more than 1 parameter, as can be seen in the next example.
 
-11. Write the following code in `app.py` after the code for the `intro()` view function (but before the `if __name__ == "__main__"` code) which will create a route and view where the route takes in two parameters `<name>` and `<int:age>`:
+10. Write the following code in `app.py` after the code for the `intro()` view function (but before the `if __name__ == "__main__"` code) which will create a route and view where the route takes in two parameters `<name>` and `<int:age>`:
 
 ```py
 @app.route('/intro/<name>/<int:age>')
