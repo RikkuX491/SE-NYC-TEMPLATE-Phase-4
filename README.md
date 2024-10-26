@@ -30,11 +30,27 @@ The following code in `app.py` will import the `Flask` class so that we can use 
 from flask import Flask
 ```
 
+The following code in `app.py` will import the `flatburgers_html_code` variable from the `html.py` file in the `flatburgers` directory:
+
+```py
+from flatburgers.html import flatburgers_html_code
+```
+
+The value of the `flatburgers_html_code` variable is a `string` containing `HTML` code that should be returned from a `Flask` view in Deliverable # 3.
+
+The following code in `app.py` will import the `burgers` variable from the `data.py` file in the `flatburgers` directory:
+
+```py
+from flatburgers.data import burgers
+```
+
+The value of the `burgers` variable is a `list` that contains five `dictionaries` that each have three key and value pairs (`name`, `image`, and `description`) that pertain to information about burgers. The `burgers` variable should be returned from a `Flask` view in Deliverable # 4.
+
 ## Code Along
 
 We will be writing our code in the `app.py` file in the `server` directory (folder):
 
-1. Write the following code on the next line after the `from data import burgers` line of code in `app.py`:
+1. Write the following code on the next line after the `from flatburgers.data import burgers` line of code in `app.py`:
 
 ```py
 app = Flask(__name__)
