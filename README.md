@@ -30,13 +30,13 @@ The following code in `app.py` will import the `Flask` class so that we can use 
 from flask import Flask
 ```
 
-The following code in `app.py` will import the `flatburgers_html_code` variable from the `html.py` file in the `flatburgers` directory:
+The following code in `app.py` will import the `flatburger_html_code` variable from the `html.py` file in the `flatburger` directory:
 
 ```py
-from flatburgers.html import flatburgers_html_code
+from flatburger.html import flatburger_html_code
 ```
 
-The value of the `flatburgers_html_code` variable is a `string` containing `HTML` code that should be returned from a `Flask` view in Deliverable # 3.
+The value of the `flatburger_html_code` variable is a `string` containing `HTML` code that should be returned from a `Flask` view in Deliverable # 3.
 
 The following code in `app.py` will import the `burgers` variable from the `data.py` file in the `flatburgers` directory:
 
@@ -171,6 +171,6 @@ Result: The number is 4.0
 
 Note: Make sure to convert the `<number>` parameter to an integer when solving this deliverable!
 
-3. Create a `flatburgers()` view. The route for this view should be of the format `/flatburgers_page`. The view should return the `flatburgers_html_code` variable which contains a `string` containing `HTML` code.
+3. Create a `flatburger()` view. The route for this view should be of the format `/flatburger_page`. The view should return the `flatburger_html_code` variable which contains a `string` containing `HTML` code.
 
 4. Create a `get_burgers()` view. The route for this view should be of the format `/burgers`. The view should return the `burgers` variable which contains a `list` that contains five `dictionaries` that each have three key and value pairs (`name`, `image`, and `description`) that pertain to information about burgers.

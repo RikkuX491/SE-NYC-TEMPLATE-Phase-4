@@ -91,7 +91,7 @@ js_code = """
     </script>
 """
 
-flatburgers_html_code = f"""
+flatburger_html_code = f"""
     <!DOCTYPE html>
     <html>
         <head>
