@@ -170,3 +170,7 @@ Result: The number is 4.0
 2. Create a `count_and_square()` view that takes one parameter, an integer. The route for this view should be of the format `/count_and_square/<number>`. For all numbers in the `range` of that parameter, the view should return a string that contains those numbers squared on separate lines. For example, if the parameter has the value of `4`, the view should return a string that display the values of `1`, `4`, `9`, and `16` on separate lines since that would be the result of squaring the numbers `1`, `2`, `3`, and `4` where the range is from `1 - 4`, including `4`.
 
 Note: Make sure to convert the `<number>` parameter to an integer when solving this deliverable!
+
+3. Create a `flatburgers()` view. The route for this view should be of the format `/flatburgers_page`. The view should return the `flatburgers_html_code` variable which contains a `string` containing `HTML` code.
+
+4. Create a `get_burgers()` view. The route for this view should be of the format `/burgers`. The view should return the `burgers` variable which contains a `list` that contains five `dictionaries` that each have three key and value pairs (`name`, `image`, and `description`) that pertain to information about burgers.
