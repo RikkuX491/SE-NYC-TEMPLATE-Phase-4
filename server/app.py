@@ -21,10 +21,22 @@ migrate = Migrate(app, db)
 db.init_app(app)
 
 @app.route('/hotels')
-def all_hotels():
-    hotels = Hotel.query.all()
-    hotel_list_with_dictionaries = [hotel.to_dict() for hotel in hotels]
-    return make_response(hotel_list_with_dictionaries)
+def get_hotels():
+    response_body = [hotel.to_dict() for hotel in Hotel.query.all()]
+    return make_response(response_body, 200)
+
+@app.route('/hotels/<int:id>')
+def hotel_by_id(id):
+    hotel = db.session.get(Hotel, id)
+
+    if hotel:
+        response_body = hotel.to_dict()
+        return make_response(response_body, 200)
+    else:
+        response_body = {
+            "error": "Hotel Not Found!"
+        }
+        return make_response(response_body, 404)
 
 if __name__ == "__main__":
     app.run(port=7777, debug=True)

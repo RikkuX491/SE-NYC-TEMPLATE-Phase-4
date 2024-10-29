@@ -19,4 +19,4 @@ with app.app_context():
     db.session.add_all([customer1, customer2, customer3])
 
     db.session.commit()
-    print("🌱 Hotels, and Customers successfully seeded! 🌱")
+    print("🌱 Hotels and Customers successfully seeded! 🌱")
