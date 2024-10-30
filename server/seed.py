@@ -4,9 +4,9 @@ from app import app
 from models import db, Hotel, Customer, Review
 
 with app.app_context():
+    Review.query.delete()
     Hotel.query.delete()
     Customer.query.delete()
-    Review.query.delete()
 
     hotel1 = Hotel(name="Marriott")
     hotel2 = Hotel(name="Hampton Inn")
