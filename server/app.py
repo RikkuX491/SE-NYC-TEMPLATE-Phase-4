@@ -37,6 +37,7 @@ def all_hotels():
         hotels = Hotel.query.all()
         response_body = [hotel.to_dict(only=('id', 'name')) for hotel in hotels]
         return make_response(response_body, 200)
+    
     elif request.method == 'POST':
         hotel_name = request.json.get('name')
         new_hotel = Hotel(name=hotel_name)
@@ -53,13 +54,15 @@ def hotel_by_id(id):
         if request.method == "GET":
             response_body = hotel.to_dict(rules=('-reviews.hotel', '-reviews.customer'))
             response_body['customers'] = [customer.to_dict(only=('id', 'first_name', 'last_name')) for customer in hotel.customers]
-            return make_response(response_body, 200)  
+            return make_response(response_body, 200)
+        
         elif request.method == 'PATCH':
             for attr in request.json:
                 setattr(hotel, attr, request.json.get(attr))
             db.session.commit()
             response_body = hotel.to_dict(rules=('-reviews',))
-            return make_response(response_body, 200)        
+            return make_response(response_body, 200)
+          
         elif request.method == 'DELETE':
             db.session.delete(hotel)
             db.session.commit()
@@ -77,6 +80,7 @@ def all_customers():
         customers = Customer.query.all()
         customer_list_with_dictionaries = [customer.to_dict(only=('id', 'first_name', 'last_name')) for customer in customers]
         return make_response(customer_list_with_dictionaries, 200)
+    
     elif request.method == "POST":
         customer_first_name = request.json.get('first_name')
         customer_last_name = request.json.get('last_name')
@@ -95,12 +99,14 @@ def customer_by_id(id):
             response_body = customer.to_dict(rules=('-reviews.hotel', '-reviews.customer'))
             response_body['hotels'] = [hotel.to_dict(only=('id', 'name')) for hotel in customer.hotels]
             return make_response(response_body, 200)
+        
         elif request.method == "PATCH":
             for attr in request.json:
                 setattr(customer, attr, request.json.get(attr))
             db.session.commit()
             response_body = customer.to_dict(rules=('-reviews',))
             return make_response(response_body, 200)
+        
         elif request.method == "DELETE":
             db.session.delete(customer)
             db.session.commit()
@@ -118,6 +124,7 @@ def all_reviews():
         reviews = Review.query.all()
         review_list_with_dictionaries = [review.to_dict(rules=('-hotel.reviews', '-customer.reviews')) for review in reviews]
         return make_response(review_list_with_dictionaries, 200)
+    
     elif request.method == "POST":
         review_rating = request.json.get('rating')
         review_text = request.json.get('text')
@@ -137,12 +144,14 @@ def review_by_id(id):
         if request.method == "GET":
             response_body = review.to_dict(rules=('-hotel.reviews', '-customer.reviews'))
             return make_response(response_body, 200)
+        
         elif request.method == "PATCH":
             for attr in request.json:
                 setattr(review, attr, request.json.get(attr))
             db.session.commit()
             response_body = review.to_dict(rules=('-hotel.reviews', '-customer.reviews'))
             return make_response(response_body, 200)
+        
         elif request.method == "DELETE":
             db.session.delete(review)
             db.session.commit()
