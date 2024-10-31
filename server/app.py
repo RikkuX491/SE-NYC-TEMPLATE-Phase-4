@@ -62,7 +62,7 @@ def customer_by_id(id):
         response_body = {
             "error": "Customer Not Found"
         }
-        return make_response(response_body, 200)
+        return make_response(response_body, 404)
 
 @app.route('/reviews')
 def all_reviews():
