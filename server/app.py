@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 import ipdb
 
+# request is an instance from the LocalProxy class. We can access information about the method and json data from request
 from flask import Flask, make_response, request
+
+# Migrate is a class from the flask_migrate library that creates a Migrate object that can be used to connect Flask-Migrate to your Flask app and database
 from flask_migrate import Migrate
 
+# db is a variable containing an instance of the SQLAlchemy class (Flask SQLAlchemy extension). Hotel, Customer, and Review are models that are imported from the models.py file
 from models import db, Hotel, Customer, Review
 
+# app contains our Flask app, which is an instance of the Flask class
 app = Flask(__name__)
 
 # configure a database connection to the local file examples.db
