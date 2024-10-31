@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import ipdb
 
+# make_response() is a function from the flask library that returns a Response object. We can include data (a list, dictionary, or string) and a status code and pass these in as arguments to the make_response() function. We can return a Response object from a Flask view
 from flask import Flask, make_response
 
 # Migrate is a class from the flask_migrate library that creates a Migrate object that can be used to connect Flask-Migrate to your Flask app and database
