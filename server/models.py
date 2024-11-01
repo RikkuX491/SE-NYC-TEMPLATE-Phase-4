@@ -12,7 +12,7 @@ metadata = MetaData(naming_convention={
 # create the Flask SQLAlchemy extension
 db = SQLAlchemy(metadata=metadata)
 
-# define a model class by inheriting from db.Model.
+# define a model class by inheriting from db.Model. SerializerMixin allows for calling the to_dict() method on an instance which will return a dictionary with keys are value pairs for each db.Column. db.relationships are also serialized
 class Hotel(db.Model, SerializerMixin):
     __tablename__ = 'hotels'
 
