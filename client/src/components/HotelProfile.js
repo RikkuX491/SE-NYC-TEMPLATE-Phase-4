@@ -17,7 +17,7 @@ function HotelProfile(){
     const navigate = useNavigate()
 
     useEffect(() => {
-        // GET request - Write the code to retrieve a hotel by id and update the 'hotel' state with the hotel data.
+        // GET request - Write the code to make a GET request to `/hotels/${id}` (use string interpolation since the value of the id variable should be incorporated into the string). You should retrieve a hotel by id and update the 'hotel' state with the hotel data.
     }, [])
 
     function handleDeleteButtonClick(){
