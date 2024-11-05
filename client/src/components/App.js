@@ -7,13 +7,15 @@ function App(){
 
     const [hotels, setHotels] = useState([])
 
-    useEffect(() => {
+    useEffect(getHotels, [])
+
+    function getHotels(){
         // GET request - Write the code to make a GET request to '/hotels' to retrieve all hotels and update the 'hotels' state with the hotel data.
-    }, [])
+    }
 
     function addHotel(newHotel){
-        // POST request - Write the code make a POST request to '/hotels' to create a new hotel and update the 'hotels' state to add the new hotel to the state.
-        // newHotel - contains an object with the new hotel data for the POST request.
+        // POST request - Write the code to make a POST request to '/hotels' to create a new hotel and update the 'hotels' state to add the new hotel to the state.
+        // newHotel - contains an object with the new hotel data that should be used for the POST request.
     }
 
     function updateHotel(id, hotelDataForUpdate){
