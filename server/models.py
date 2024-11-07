@@ -32,7 +32,7 @@ class User(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String)
     last_name = db.Column(db.String)
-    username = db.Column(db.String, nullable=False)
+    username = db.Column(db.String, nullable=False, unique=True)
     password_hash = db.Column(db.String, nullable=False)
     type = db.Column(db.String, nullable=False)
 
@@ -45,10 +45,17 @@ class User(db.Model, SerializerMixin):
     __table_args__ = (db.CheckConstraint('first_name != last_name'),)
 
     @validates('first_name', 'last_name')
-    def validate_columns(self, attr, value):
+    def validate_first_and_last_name(self, attr, value):
         if (not isinstance(value, str)) or len(value) < 3:
             raise ValueError(f"{attr} must be a string that is at least 3 characters long!")
         return value
+    
+    @validates('type')
+    def validate_type(self, column, value):
+        if value in ['customer', 'admin']:
+            return value
+        else:
+            raise ValueError(f"{column} must be either customer or admin!")
 
 class Review(db.Model, SerializerMixin):
     __tablename__ = 'reviews'

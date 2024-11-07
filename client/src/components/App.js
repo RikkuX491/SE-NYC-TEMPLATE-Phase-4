@@ -25,6 +25,9 @@ function App(){
             if(response.ok){
                 response.json().then(userData => {
                     setUser(userData)
+                    if(window.location.pathname == '/login'){
+                        navigate('/')
+                    }
                 })
             }
             else if(response.status === 401){
@@ -160,7 +163,7 @@ function App(){
       <div className="app">
         <NavBar user={user} logOutUser={logOutUser}/>
         <Header/>
-        {user ? <h1>Welcome {user.username}!</h1> : null}
+        {user ? <h1>Welcome {user.first_name} {user.last_name}!</h1> : null}
         <Outlet context={{hotels: hotels, addHotel: addHotel, deleteHotel: deleteHotel, updateHotel: updateHotel, logInUser: logInUser}}/>
       </div>
     );

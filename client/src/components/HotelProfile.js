@@ -29,12 +29,6 @@ function HotelProfile(){
                     })
                 })
             }
-            else if(response.status === 404){
-                response.json().then(errorData => alert(`Error: ${errorData.error}`))
-            }
-            else{
-                response.json().then(() => alert("Error: Something went wrong."))
-            }
         })
     }, [])
 
@@ -79,7 +73,7 @@ function HotelProfile(){
                 </form>
                 }
             </div> :
-            null
+            <h1>Error: Hotel # {id} not found!</h1>
             }
         </>
     );

@@ -133,7 +133,7 @@ class AllUsers(Resource):
             return make_response(response_body, 201)
         except:
             response_body = {
-                "error": "User's first name and last name cannot be the same, and first name and last name must be at least 3 characters long! User must have a username and password!"
+                "error": "Username might already exist. User type can only be either customer or admin. User's first name and last name cannot be the same, and first name and last name must be at least 3 characters long! User must have a username and password!"
             }
             return make_response(response_body, 400)
     

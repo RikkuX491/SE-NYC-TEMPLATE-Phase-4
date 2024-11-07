@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function NavBar({user, logOutUser}){
     return (
         <nav className="navbar">
-            {user ? 
+            {user !== null ? 
                 <>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/add_hotel">Add Hotel</NavLink>

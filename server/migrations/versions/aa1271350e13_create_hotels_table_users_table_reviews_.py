@@ -1,8 +1,8 @@
-"""Create tables and columns
+"""Create hotels table, users table, reviews table, and columns
 
-Revision ID: 2e1417d9d2de
+Revision ID: aa1271350e13
 Revises: 
-Create Date: 2024-04-14 23:09:18.864478
+Create Date: 2024-11-07 15:40:06.177602
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2e1417d9d2de'
+revision = 'aa1271350e13'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -33,7 +33,8 @@ def upgrade():
     sa.Column('password_hash', sa.String(), nullable=False),
     sa.Column('type', sa.String(), nullable=False),
     sa.CheckConstraint('first_name != last_name'),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('username')
     )
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
