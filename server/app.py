@@ -6,9 +6,8 @@ from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from flask_cors import CORS
 
-# New imports start here
+# Imports the Bcrypt class from the flask_bcrypt package
 from flask_bcrypt import Bcrypt
-# New imports end here
 
 from models import db, Hotel, User, Review
 
@@ -29,9 +28,8 @@ migrate = Migrate(app, db)
 # initialize the Flask application to use the database
 db.init_app(app)
 
-# New code starts here
+# Creates a new instance of the Bcrypt class, passing in the Flask app as an argument into the Bcrypt class constructor. We will use Bcrypt to encrypt our passwords
 bcrypt = Bcrypt(app)
-# New code ends here
 
 api = Api(app)
 
