@@ -10,6 +10,9 @@ import HotelList from './components/HotelList';
 import NewHotelForm from './components/NewHotelForm';
 import HotelProfile from './components/HotelProfile';
 import LoginForm from './components/LoginForm';
+import ReviewList from './components/ReviewList';
+import UserReviewList from './components/UserReviewList';
+import NewReviewForm from './components/NewReviewForm';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
       {
         path: "/hotels/:id",
         element: <HotelProfile/>
+      },
+      {
+        path: "/reviews",
+        element: <ReviewList/>
+      },
+      {
+        path: "/my_reviews",
+        element: <UserReviewList/>
+      },
+      {
+        path: "/add_review",
+        element: <NewReviewForm/>
       },
       {
         path: "/login",

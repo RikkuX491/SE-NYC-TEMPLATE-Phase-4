@@ -284,7 +284,7 @@ class Login(Resource):
 
         if(user):
             session['user_id'] = user.id
-            response_body = user.to_dict(rules=('-reviews.hotel', '-reviews.user', '-password_hash'))
+            response_body = user.to_dict(rules=('-reviews.hotel.reviews', '-reviews.user', '-password_hash'))
 
             # Add in the association proxy data (The user's hotels) while removing duplicate hotel data for the user's hotels
             response_body['hotels'] = [hotel.to_dict(only=('id', 'name', 'image')) for hotel in list(set(user.hotels))]
@@ -304,7 +304,7 @@ class CheckSession(Resource):
         user = db.session.get(User, session.get('user_id'))
 
         if(user):
-            response_body = user.to_dict(rules=('-reviews.hotel', '-reviews.user', '-password_hash'))
+            response_body = user.to_dict(rules=('-reviews.hotel.reviews', '-reviews.user', '-password_hash'))
 
             # Add in the association proxy data (The user's hotels) while removing duplicate hotel data for the user's hotels
             response_body['hotels'] = [hotel.to_dict(only=('id', 'name', 'image')) for hotel in list(set(user.hotels))]

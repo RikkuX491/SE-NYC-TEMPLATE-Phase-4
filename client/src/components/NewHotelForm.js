@@ -5,7 +5,6 @@ function NewHotelForm() {
 
   const {addHotel} = useOutletContext()
 
-
   const [formData, setFormData] = useState({
     name: "",
     image: ""
